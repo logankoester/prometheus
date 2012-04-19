@@ -1,6 +1,6 @@
 module Prometheus
   class Config < Settingslogic
-    source CONFIG_PATH
+    source ::CONFIG_PATH
     class << self
       attr_accessor :configurables
 
