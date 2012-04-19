@@ -1,12 +1,12 @@
 require_relative "<%= @name %>/version"
 require 'prometheus'
-require 'prometheus/plugins/core/core_commands'
 
 APP_NAME = '<%= @name.camelize %>'
 CONFIG_PATH = "#{ENV['HOME']}/.#{APP_NAME}/config"
 TEMPLATES_PATH = File.expand_path('../../templates', __FILE__)
 PROMPT='<%= @name.camelize %>'
 
+require 'prometheus/plugins/core/core_commands'
 module <%= @name.camelize %>
   include Prometheus
 
