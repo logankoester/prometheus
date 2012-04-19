@@ -16,7 +16,7 @@ module PrometheusApp
     full_name 'Prometheus'
     readme File.read(File.expand_path('../../README.md', __FILE__))
     register App, 'app', 'app <command>', 'Prometheus application generator'
-    register Plugin, 'plugin', 'plugin <command>', 'Manage plugins'
+    register Plugin, 'plugin', 'plugin <command>', 'Manage plugins for the current application'
   end
 end
 

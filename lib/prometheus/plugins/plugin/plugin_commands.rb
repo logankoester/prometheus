@@ -8,7 +8,7 @@ module PrometheusApp
     def self.source_root; TEMPLATES_PATH; end
     readme File.read(File.expand_path('../README', __FILE__))
 
-    desc 'new', 'Add a plugin to a Prometheus project in the current working directory'
+    desc 'new', 'Add a plugin to the application in the working directory'
     def new(name)
       @name = name
       plugin_dirs = Dir[File.join(Dir.pwd, 'lib', '**', 'plugins')]
