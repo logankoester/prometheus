@@ -12,27 +12,10 @@ Dir['lib/prometheus/plugins/**/*_commands.rb'].each { |m| require File.expand_pa
 
 module PrometheusApp
   include Prometheus
-
-  class Project < Prometheus::Base
-    include Thor::Actions
-
-    full_name 'Project Generator'
-    namespace :project
-    def self.source_root; TEMPLATES_PATH; end
-
-    desc 'new TARGET', 'Generate a new project layout'
-    argument :name, :type => :string, :required => true
-    def new
-      @author_name = `git config --global --get user.name`.strip
-      @author_email = `git config --global --get user.email`.strip
-      directory File.join('skeleton'), name
-      chmod "#{@name}/bin/#{@name}", '+x'
-    end
-  end
-
   class Commands < Prometheus::Commands
+    full_name 'Prometheus'
     readme File.read(File.expand_path('../../README.md', __FILE__))
-    register Project, 'project', 'project <command>', 'Prometheus application generator'
+    register App, 'app', 'app <command>', 'Prometheus application generator'
   end
 end
 
