@@ -26,6 +26,7 @@ module PrometheusApp
       @author_name = `git config --global --get user.name`.strip
       @author_email = `git config --global --get user.email`.strip
       directory File.join('skeleton'), name
+      chmod "#{@name}/bin/#{@name}", '+x'
     end
   end
 
