@@ -1,6 +1,6 @@
 ## Prometheus
 
-Prometheus is a lightweight, modular framework built on Thor to quickly create beautiful 
+Prometheus is a lightweight, modular framework built on [Thor](https://github.com/wycats/thor) to quickly create beautiful 
 command-line interfaces for your gems. It provides a standardized layout with generators,
 smart configuration, and an interactive console to work with your tasks.
 
@@ -26,6 +26,7 @@ You can use the app generator to create a new application in your working direct
       create  my_app/lib/my_app/version.rb
       create  my_app/templates/default_config.yml
        chmod  my_app/bin/my_app
+    $
 
 ### Automatic Configuration
 
@@ -95,8 +96,7 @@ If you open up `lib/my_app/plugins/say_hello/say_hello_commands.rb`, you will se
       end
     end
 
-Remove the boilerplate `new_task` and add your own greeting. Then jump out into `lib/my_app.rb` and register your new plugin just
-as you would in regular Thor.
+Remove the boilerplate `new_task` and add your own greeting. Then jump out into `lib/my_app.rb` and register your new plugin.
       
       [...]
 
