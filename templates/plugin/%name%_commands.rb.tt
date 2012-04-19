@@ -1,0 +1,12 @@
+module PrometheusApp
+  class <%= @name.camelize %> < Prometheus::Base
+
+    full_name '<%= @name %>'
+    namespace :<%= @name %>
+    readme File.read(File.expand_path('../README', __FILE__))
+
+    desc 'new_task', 'A newly generated plugin task'
+    def new_task
+    end
+  end
+end
