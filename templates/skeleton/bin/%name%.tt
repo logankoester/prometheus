@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require File.expand_path('../../lib/<%= @name %>', __FILE__)
+<%= @name.camelize %>::Commands.start

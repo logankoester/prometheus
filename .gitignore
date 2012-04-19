@@ -1,0 +1,4 @@
+# For vim:
+*.swp
+*.swo
+pkg/*
