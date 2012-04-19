@@ -1,3 +1,5 @@
+require 'active_support/inflector'
+
 module Prometheus
   class Plugin < Prometheus::Base
     include Thor::Actions
