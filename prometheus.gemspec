@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Prometheus::VERSION
   s.authors     = ["Logan Koester"]
   s.email       = ["logan@logankoester.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/logankoester/prometheus"
   s.summary     = %q{A lightweight layer above Thor to quickly create beautiful command-line interfaces.}
   s.description = %q{A lightweight layer above Thor to quickly create beautiful command-line interfaces.}
   s.executables = ['prometheus']
