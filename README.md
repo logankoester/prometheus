@@ -1,6 +1,8 @@
 ## Prometheus
 
-Prometheus is a modular framework built on Thor to quickly create beautiful command-line interfaces.
+Prometheus is a lightweight, modular framework built on Thor to quickly create beautiful 
+command-line interfaces for your gems. It provides a standardized layout with generators,
+smart configuration, and an interactive console to work with your tasks.
 
 ### Getting Started
 
@@ -67,7 +69,45 @@ You can also execute system or Ruby commands with the !! and !! operators.
 ### Adding Plugins
 
 Now that you have a barebones application, you can start implementing your own
-functionality by way of plugins. Let's generate one now.
+functionality by way of plugins. Let's create one now.
 
-  $ cd my_app
-  $
+    $ cd my_app
+    $ prometheus plugin new say_hello
+        create  lib/my_app/plugins/say_hello
+        create  lib/my_app/plugins/say_hello/say_hello_commands.rb
+        create  lib/my_app/plugins/say_hello/README
+    New plugin adding to application at /home/ldk/Dropbox/home/hack/oss/prometheus/my_app/lib/my_app/plugins/say_hello
+    Remember, this plugin will not be active until registered in your Prometheus::Commands subclass
+    $
+
+If you open up `lib/my_app/plugins/say_hello/say_hello_commands.rb`, you will see something like this
+
+    module PrometheusApp
+      class SayHello < Prometheus::Base
+
+        full_name 'say_hello'
+        namespace :say_hello
+        readme File.read(File.expand_path('../README', __FILE__))
+
+        desc 'new_task', 'A newly generated plugin task'
+        def new_task
+        end
+      end
+    end
+
+Remove the boilerplate `new_task` and add your own greeting. Then jump out into `lib/my_app.rb` and register your new plugin just
+as you would in regular Thor.
+      
+      [...]
+
+      class Commands < Prometheus::Commands
+        readme File.read(File.expand_path('../../README.md', __FILE__))
+        register SayHello, 'hello', 'hello', 'Display a greeting'
+      end
+    end
+
+That's all there is to it. From here on out, it's just regular [Thor](https://github.com/wycats/thor).
+
+### License
+
+Released under the MIT License. See the LICENSE file for further details.
