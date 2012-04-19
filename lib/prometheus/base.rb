@@ -10,7 +10,7 @@ module Prometheus
       end
 
       def banner(task, namespace = true, subcommand = false)
-        "#{basename} #{task.formatted_usage(self, true, subcommand)}"
+        "#{task.formatted_usage(self, false, subcommand)}"
       end
     end
 
@@ -29,5 +29,6 @@ module Prometheus
       end
       super(task, subcommand)
     end
+
   end
 end

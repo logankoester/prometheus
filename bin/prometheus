@@ -15,6 +15,7 @@ Dir[File.expand_path(
 module PrometheusApp
   include Prometheus
   class Commands < Prometheus::Commands
+    namespace :core
     full_name 'Prometheus Shell'
     readme File.read(File.expand_path('../../README.md', __FILE__))
     register App, 'app', 'app <command>', 'Prometheus application generator'
