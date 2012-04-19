@@ -21,4 +21,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'thor'
   s.add_dependency 'settingslogic'
   s.add_dependency 'active_support'
+
+  s.add_development_dependency 'rake'
 end

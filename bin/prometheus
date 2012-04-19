@@ -8,7 +8,7 @@ TEMPLATES_PATH = File.expand_path('../../templates', __FILE__)
 PROMPT='Prometheus'
 
 # Load all modules
-Dir['lib/plugins/**/*_commands.rb'].each { |m| require File.expand_path("../../#{m}", __FILE__) }
+Dir['lib/prometheus/plugins/**/*_commands.rb'].each { |m| require File.expand_path("../../#{m}", __FILE__) }
 
 module PrometheusApp
   include Prometheus
