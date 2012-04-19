@@ -2,7 +2,7 @@ require_relative "<%= @name %>/version"
 require 'prometheus'
 
 APP_NAME = '<%= @name.camelize %>'
-CONFIG_PATH = "#{ENV['HOME']}/.#{APP_NAME}/config"
+CONFIG_PATH = "#{ENV['HOME']}/.<%= @name %>/config"
 TEMPLATES_PATH = File.expand_path('../../templates', __FILE__)
 PROMPT='<%= @name.camelize %>'
 
