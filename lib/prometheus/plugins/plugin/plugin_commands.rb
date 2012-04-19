@@ -5,8 +5,8 @@ module Prometheus
 
     full_name 'Manage Plugins'
     namespace :plugin
-    def self.source_root; TEMPLATES_PATH; end
     readme File.read(File.expand_path('../README', __FILE__))
+    source_root File.expand_path('../../../../../templates', __FILE__)
 
     desc 'new', 'Add a plugin to the application in the working directory'
     def new(name)
