@@ -7,6 +7,7 @@ TEMPLATES_PATH = File.expand_path('../../templates', __FILE__)
 PROMPT='<%= @name.camelize %>'
 
 require 'prometheus/plugins/core/core_commands'
+require 'prometheus/extra/config/config_commands'
 module <%= @name.camelize %>
   include Prometheus
 

@@ -8,15 +8,17 @@ TEMPLATES_PATH = File.expand_path('../../templates', __FILE__)
 PROMPT='Prometheus'
 
 # Load all modules
-Dir[File.expand_path(File.join('..', '..', 'lib', 'prometheus', 'plugins', '**', '*_commands.rb'), __FILE__)].each { |m| require m }
+Dir[File.expand_path(
+  File.join('..', '..', 'lib', 'prometheus', 'plugins', '**', '*_commands.rb'), __FILE__
+)].each { |m| require m }
 
 module PrometheusApp
   include Prometheus
   class Commands < Prometheus::Commands
-    full_name 'Prometheus'
+    full_name 'Prometheus Shell'
     readme File.read(File.expand_path('../../README.md', __FILE__))
     register App, 'app', 'app <command>', 'Prometheus application generator'
-    register Plugin, 'plugin', 'plugin <command>', 'Manage plugins for the current application'
+    register Prometheus::Plugin, 'plugin', 'plugin <command>', 'Manage plugins for the current application'
   end
 end
 

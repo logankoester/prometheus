@@ -43,6 +43,7 @@ module Prometheus
 
       # Return an array of configurable keys that are not found in the user's config
       def missing_configurables
+        return [] unless @configurables
         configurable_keys = @configurables.map { |k, v| v.map { |i| i[:key].to_s } }.flatten
         configurable_keys.reject { |k| Config.keys.include? k }
       end

@@ -1,4 +1,4 @@
-module PrometheusApp
+module Prometheus
   class Plugin < Prometheus::Base
     include Thor::Actions
     attr_accessor :name
