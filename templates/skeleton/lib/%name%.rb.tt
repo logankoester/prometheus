@@ -1,20 +1,19 @@
 require_relative "<%= @name %>/version"
 require 'prometheus'
+require 'prometheus/plugins/core/core_commands'
+
+APP_NAME = '<%= @name.camelize %>'
+CONFIG_PATH = "#{ENV['HOME']}/.#{APP_NAME}/config"
+TEMPLATES_PATH = File.expand_path('../../templates', __FILE__)
+PROMPT='<%= @name.camelize %>'
 
 module <%= @name.camelize %>
-  APP_NAME = '<%= @name.camelize %>'
-  CONFIG_PATH = "#{ENV['HOME']}/.#{APP_NAME}/config"
-  TEMPLATES_PATH = File.expand_path('../../templates', __FILE__)
-  PROMPT='<%= @name.camelize %>'
+  include Prometheus
 
   # Load all modules
   Dir['lib/plugins/**/*_commands.rb'].each { |m| require File.expand_path("../../#{m}", __FILE__) }
 
-  module <%= @name.camelize %>
-    include Prometheus
-
-    class Commands < Prometheus::Commands
-      readme File.read(File.expand_path('../../README.md', __FILE__))
-    end
+  class Commands < Prometheus::Commands
+    readme File.read(File.expand_path('../../README.md', __FILE__))
   end
 end
