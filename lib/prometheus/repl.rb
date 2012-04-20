@@ -54,7 +54,7 @@ module Prometheus
       def prompt
         ns = @context.class.namespace.split(':').last
         ns = 'debug' if @debug_mode
-        "\e[34m#{PROMPT}:\e[35m#{ns}\e[0m>\e "
+        "\e[34m#{PROMPT}:\e[35m#{ns}\e[0m> "
       end
 
       def setup_readline
